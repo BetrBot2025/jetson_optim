@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  yolo-trt:
+    build: .
+    image: jetson/yolo-trt:visual
+    runtime: nvidia
+    network_mode: host
+    ipc: host
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ./models:/models
